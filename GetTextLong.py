@@ -34,7 +34,7 @@ phrslst = []
 
 
 
-for ctr in range(12):
+for ctr in range(36):
 
     wdlst = []
 
