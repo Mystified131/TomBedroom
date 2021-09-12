@@ -44,7 +44,7 @@ for ctr in range(plen):
 
     crop(elm, (300, 55, 1470, 760), nelm)
 
-Imgpt = "C:\\Users\\mysti\\Coding\\TomsBedroom"
+Imgpt = "C:\\Users\\mysti\\Coding\\TomBedroom"
 
 contentgraph2 = []
 
@@ -104,7 +104,7 @@ for ctr in range(3):
                     bi[py][px][2] =  m[py][px][2] + c
 
                 
-            outpath =  "C:\\Users\\mysti\\Coding\\Fractalizer\\BulkImage" + str(tim) + str(ctr + cotr) +".jpg"
+            outpath =  "C:\\Users\\mysti\\Coding\\TomBedroom\\BulkImage" + str(tim) + str(ctr + cotr) +".jpg"
             
 
             #cv2.imshow('matrix', bi)
