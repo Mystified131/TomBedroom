@@ -13,7 +13,7 @@ import subprocess
 from tempfile import gettempdir
 import boto3
 from subprocess import call
-from TextGetter import GetWebText
+#from TextGetter import GetWebText
 
 right_now = datetime.datetime.now().isoformat()          
 list = []
@@ -26,8 +26,6 @@ tim = ("".join(list))
 
 srchstr = 'C:\\Users\\mysti\\Coding\\TomBedroom'
 
-wordcon = GetWebText()
-
 filestr = "InWords.txt"
 
 infile = open(filestr, "r")
@@ -36,58 +34,39 @@ contentwords = []
 
 plist = infile.readline()
 while plist:
-    contentwords.append(plist)
+    contentwords.append(plist.strip())
     plist = infile.readline()
 
 infile.close()
-            
-x1 = len(wordcon)
+
+totstr = ""
+
+for elem in contentwords:
+    totstr += (elem + "")
+
+senlst = totstr.split('.')
 
 phrslst = []
+      
+x1 = len(senlst)
 
+senstr = ""
 
+for elem2 in senlst:
 
-for ctr in range(36):
+       
+    texch = random_number(10)
+    if texch < 7:
+        astr = elem2[:3]
+        for rep in range(random_number2(1,5)):
+            bstr = astr * rep   
+        senstr += (bstr + elem2)
+    if texch > 6:
+        senstr += elem2
 
-    wdlst = []
-
-    w1 = wordcon[random_number(x1)]
-    w2 = wordcon[random_number(x1)]
-    w3 = wordcon[random_number(x1)]
-
-
-    bstr = ""
-    astr = w1[:3] 
-    for rep in range(random_number(8)):
-        bstr = astr * rep
-    w1a = ""  
-    w1a = bstr + w1
-    wdlst.append(w1a)
-
-    bstr = ""
-    astr = w2[:3] 
-    for rep in range(random_number(8)):
-        bstr = astr * rep
-    w2a = ""
-    w2a = bstr + w2
-    wdlst.append(w2a)
-
-    bstr = ""
-    astr = w3[:3] 
-    for rep in range(random_number(8)):
-        bstr = astr * rep
-    w3 = ""
-    w3a = bstr + w3
-    wdlst.append(w3a)
-
-    spchstr = ""
-
-    for elem in wdlst:
-        spchstr += elem
-
-    spchstr += ",, "
-
-    phrslst.append(spchstr)
+senstr += ",, "
+    
+phrslst.append(senstr)
 
 print(phrslst)
 
