@@ -57,7 +57,7 @@ for elem2 in senlst:
        
     texch = random_number(10)
     if texch < 7:
-        astr = elem2[:3]
+        astr = elem2[:4]
         for rep in range(random_number2(1,5)):
             bstr = astr * rep   
         senstr += (bstr + elem2)
