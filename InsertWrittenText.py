@@ -26,7 +26,9 @@ tim = ("".join(list))
 
 srchstr = 'C:\\Users\\mysti\\Coding\\TomBedroom'
 
-filestr = "InWords.txt"
+filestr = "InWords2.txt"
+
+#filestr = "Paranoimia2.txt"
 
 infile = open(filestr, "r")
 
@@ -39,32 +41,35 @@ while plist:
 
 infile.close()
 
-totstr = ""
+#totstr = ""
 
-for elem in contentwords:
-    totstr += (elem + "")
+#for elem in contentwords:
+    #totstr += (elem + "")
 
-senlst = totstr.split('.')
+#senlst = totstr.split('.')
 
 phrslst = []
       
-x1 = len(senlst)
+#x1 = len(senlst)
 
 senstr = ""
 
-for elem2 in senlst:
+for elem in contentwords:
+    elem3 = elem.split()
+    for elem2 in elem3:
+        
+        texch = random_number(10)
+        if texch < 6 and len(elem2) > 7:
+            astr = elem2[:4]
+            for rep in range(random_number2(1,5)):
+                bstr = astr * rep   
+            senstr += (bstr + elem2)
+        if texch > 5 or len(elem2) < 8:
+            senstr += elem2
 
-       
-    texch = random_number(10)
-    if texch < 7:
-        astr = elem2[:4]
-        for rep in range(random_number2(1,5)):
-            bstr = astr * rep   
-        senstr += (bstr + elem2)
-    if texch > 6:
-        senstr += elem2
+        senstr += "  "
 
-senstr += ",, "
+    senstr += ",, "
     
 phrslst.append(senstr)
 
@@ -142,7 +147,9 @@ for citr in range(1):
 
     #voxlst = ['Carla', 'Emma', 'Raveena', 'Marlene', 'Mathieu', 'Nicole']
 
-    voxlst = ['Matthew']
+    voxlst = ['Emma']
+
+    #voxlst = ['Joanna']
 
     voxch = random_number(len(voxlst))
 

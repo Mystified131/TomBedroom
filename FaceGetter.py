@@ -19,7 +19,7 @@ def crop(image_path, coords, saved_location):
 
 #Imgpt = "C:\\Users\\mysti\\Desktop\\TomBedroom"
 
-Imgpt = "C:\\Users\\mysti\\Desktop\\TomBedroomElements\\screenshots"
+Imgpt = "F:\\Visual\\TomBedroomImages\\ScreenShotsTom"
 
 contentgraph = []
 
