@@ -19,7 +19,9 @@ def crop(image_path, coords, saved_location):
 
 #Imgpt = "C:\\Users\\mysti\\Desktop\\TomBedroom"
 
-Imgpt = "F:\\Visual\\TomBedroomImages\\ScreenShotsTom"
+#Imgpt = "F:\\Visual\\TomBedroomImages\\ScreenShotsTom"
+
+Imgpt = "F:\\Visual\\TomBedroomImages\\YogStil"
 
 contentgraph = []
 
@@ -42,7 +44,9 @@ for ctr in range(plen):
 
     print(nelm)
 
-    crop(elm, (300, 55, 1470, 760), nelm)
+    #crop(elm, (55, 450, 760, 1600), nelm)
+
+    crop(elm, (500, 40, 1000, 420), nelm)
 
 Imgpt = "C:\\Users\\mysti\\Coding\\TomBedroom"
 

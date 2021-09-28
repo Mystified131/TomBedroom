@@ -13,7 +13,7 @@ import subprocess
 from tempfile import gettempdir
 import boto3
 from subprocess import call
-#from TextGetter import GetWebText
+from TextGetter import GetWebText
 
 right_now = datetime.datetime.now().isoformat()          
 list = []
@@ -26,63 +26,57 @@ tim = ("".join(list))
 
 srchstr = 'C:\\Users\\mysti\\Coding\\TomBedroom'
 
-filestr = "WAS.txt"
-
-#filestr = "Paranoimia2.txt"
-
-infile = open(filestr, "r")
-
-contentwords = []
-
-plist = infile.readline()
-while plist:
-    contentwords.append(plist.strip())
-    plist = infile.readline()
-
-infile.close()
-
-#totstr = ""
-
-#for elem in contentwords:
-    #totstr += (elem + "")
-
-#senlst = totstr.split('.')
+wordcon = GetWebText()
+            
+x1 = len(wordcon)
 
 phrslst = []
-      
-#x1 = len(senlst)
 
-senstr = ""
+for ctr in range(12):
 
-for elem in contentwords:
-    elem3 = elem.split()
-    for elem2 in elem3:
-        
-        texch = random_number(10)
-        if texch < 6 and len(elem2) > 7:
-            astr = elem2[:4]
-            for rep in range(random_number2(1,5)):
-                bstr = astr * rep   
-            senstr += (bstr + elem2)
-        if texch > 5 or len(elem2) < 8:
-            senstr += elem2
+    wdlst = []
 
-        senstr += "  "
+    w1 = wordcon[random_number(x1)]
+    w2 = wordcon[random_number(x1)]
+    #w3 = wordcon[random_number(x1)]
 
-    senstr += ",, "
-    
-phrslst.append(senstr)
+
+    bstr = ""
+    astr = w1[:3] 
+    for rep in range(random_number(8)):
+        bstr = astr * rep
+    w1a = ""  
+    w1a = bstr + w1
+    wdlst.append(w1a)
+
+    bstr = ""
+    astr = w2[:3] 
+    for rep in range(random_number(8)):
+        bstr = astr * rep
+    w2a = ""
+    w2a = bstr + w2
+    wdlst.append(w2a)
+
+    #bstr = ""
+    #astr = w3[:3] 
+    #for rep in range(random_number(8)):
+        #bstr = astr * rep
+    #w3 = ""
+    #w3a = bstr + w3
+    #wdlst.append(w3a)
+
+    spchstr = ""
+
+    for elem in wdlst:
+        spchstr += elem
+
+    phrslst.append(spchstr)
 
 print(phrslst)
 
 print("")
 
-outst = ""
-
-for elemm in phrslst:
-    outst += elemm
-
-for citr in range(1):
+for citr in range(len(phrslst)):
 
     paragraph = ""
 
@@ -145,11 +139,9 @@ for citr in range(1):
 
     #voxlst = ['Nicole', 'Kevin', 'Enrique', 'Tatyana', 'Russell', 'Olivia', 'Lotte', 'Geraint', 'Carmen', 'Mads', 'Penelope', 'Mia', 'Joanna', 'Matthew', 'Brian', 'Seoyeon', 'Ruben', 'Ricardo', 'Maxim', 'Lea', 'Giorgio', 'Carla', 'Naja', 'Maja', 'Astrid', 'Ivy', 'Kimberly', 'Chantal', 'Amy', 'Vicki', 'Marlene', 'Ewa', 'Conchita', 'Camila', 'Karl', 'Zeina', 'Miguel', 'Mathieu', 'Justin', 'Lucia', 'Jacek', 'Bianca', 'Takumi', 'Ines', 'Gwyneth', 'Cristiano', 'Mizuki', 'Celine', 'Zhiyu', 'Jan', 'Liv', 'Joey', 'Raveena', 'Filiz', 'Dora', 'Salli', 'Aditi', 'Vitoria', 'Emma', 'Lupe', 'Hans', 'Kendra', 'Gabrielle']
 
-    #voxlst = ['Carla', 'Emma', 'Raveena', 'Marlene', 'Mathieu', 'Nicole']
+    voxlst = ['Carla', 'Emma', 'Raveena', 'Marlene', 'Mathieu', 'Nicole']
 
-    voxlst = ['Russell']
-
-    #voxlst = ['Joanna']
+    voxlst = ['Matthew']
 
     voxch = random_number(len(voxlst))
 
@@ -157,7 +149,7 @@ for citr in range(1):
 
     outaud = "GeneratedAudioMix_" + voxstr +  "_" + tim + ".mp3"
 
-    speaktex = outst
+    speaktex = phrslst[citr]
 
     try:
     # Request speech synthesis
@@ -212,7 +204,7 @@ print("")
 print("Your spoken audio has been generated.")
 print("")
 
-#call(["python", "WakeUpTom.py"])
+call(["python", "WakeUpTom.py"])
 
 ## THE GHOST OF THE SHADOW ##
 
